@@ -1,0 +1,74 @@
+version: "3.9"
+
+services:
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./app:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+
+  php:
+    build: ./php
+    volumes:
+      - ./app:/var/www/html
+    depends_on:
+      - mariadb
+      - redis
+      - ollama
+
+  mariadb:
+    image: mariadb:11
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: app
+      MYSQL_USER: app
+      MYSQL_PASSWORD: app
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db/init:/docker-entrypoint-initdb.d
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+  ollama:
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+
+  ollama-init:
+    image: curlimages/curl:latest
+    depends_on:
+      - ollama
+    entrypoint: >
+      sh -c "
+      sleep 8 &&
+
+      echo 'Pulling Llama 3...' &&
+      curl http://ollama:11434/api/pull -d '{\"name\":\"llama3\"}' &&
+
+      echo 'Pulling Mistral...' &&
+      curl http://ollama:11434/api/pull -d '{\"name\":\"mistral\"}' &&
+
+      echo 'Pulling Mixtral...' &&
+      curl http://ollama:11434/api/pull -d '{\"name\":\"mixtral\"}' &&
+
+      echo 'Pulling Qwen2...' &&
+      curl http://ollama:11434/api/pull -d '{\"name\":\"qwen2\"}' &&
+
+      echo 'All models requested'
+      "
+
+volumes:
+  db_data:
+  ollama_data:
