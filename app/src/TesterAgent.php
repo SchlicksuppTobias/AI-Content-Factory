@@ -1,4 +1,7 @@
 <?php
+
+namespace src;
+
 require_once __DIR__ . '/OllamaClient.php';
 
 /**
@@ -15,8 +18,8 @@ class TesterAgent
     }
 
     /**
-     * @param string $ticket  Original ticket
-     * @param array  $files   [{path, content}]
+     * @param string $ticket Original ticket
+     * @param array $files [{path, content}]
      *
      * @return array  Test files [{path, content}] (may be empty if not applicable)
      */

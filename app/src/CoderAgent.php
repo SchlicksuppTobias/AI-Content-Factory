@@ -1,4 +1,7 @@
 <?php
+
+namespace src;
+
 require_once __DIR__ . '/OllamaClient.php';
 
 /**
@@ -15,9 +18,9 @@ class CoderAgent
     }
 
     /**
-     * @param string $ticket         The ticket title / task
+     * @param string $ticket The ticket title / task
      * @param string $projectContext Full project description
-     * @param string $existingCode   JSON of already written files {path: content}
+     * @param string $existingCode JSON of already written files {path: content}
      *
      * @return array {path: string, content: string}[]
      */

@@ -1,4 +1,6 @@
 <?php
+
+namespace src;
 /**
  * SSE – Server-Sent Events helper.
  * Call SSE::send() to push a JSON event to the browser.
