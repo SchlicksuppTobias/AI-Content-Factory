@@ -65,6 +65,12 @@ services:
 
       echo 'Pulling Qwen2...' &&
       curl http://ollama:11434/api/pull -d '{\"name\":\"qwen2\"}' &&
+      
+      echo 'Pulling qwen2.5-coder:7b...' &&
+      curl http://ollama:11434/api/pull -d '{\"name\":\"qwen2.5-coder:7b\"}' &&
+
+      echo 'Pulling llama3.1:8b...' &&
+      curl http://ollama:11434/api/pull -d '{\"name\":\"llama3.1:8b\"}' &&
 
       echo 'All models requested'
       "
