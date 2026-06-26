@@ -1,4 +1,7 @@
 <?php
+
+namespace src;
+
 require_once __DIR__ . '/OllamaClient.php';
 
 /**
@@ -15,8 +18,8 @@ class ReviewerAgent
     }
 
     /**
-     * @param string $ticket  The original ticket description
-     * @param array  $files   [{path, content}]
+     * @param string $ticket The original ticket description
+     * @param array $files [{path, content}]
      *
      * @return array  Reviewed (possibly corrected) [{path, content}]
      */
