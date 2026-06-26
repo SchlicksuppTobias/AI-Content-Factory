@@ -1,4 +1,6 @@
 <?php
+
+namespace src;
 /**
  * GitManager – handles cloning, writing files, committing and pushing.
  */
@@ -11,7 +13,7 @@ class GitManager
     public function __construct(string $repoUrl, string $branch = 'main')
     {
         $this->repoUrl = $repoUrl;
-        $this->branch  = $branch;
+        $this->branch = $branch;
         $this->workDir = sys_get_temp_dir() . '/ai_dev_agent_' . uniqid();
     }
 
@@ -23,8 +25,8 @@ class GitManager
     /** Clone the repository into a temp directory. */
     public function clone(): void
     {
-        $url    = escapeshellarg($this->repoUrl);
-        $dir    = escapeshellarg($this->workDir);
+        $url = escapeshellarg($this->repoUrl);
+        $dir = escapeshellarg($this->workDir);
         $branch = escapeshellarg($this->branch);
 
         $this->exec("git clone --depth=1 --branch {$branch} {$url} {$dir} 2>&1");
@@ -48,9 +50,9 @@ class GitManager
     /** Stage all changes, commit with a message, and push. */
     public function commitAndPush(string $message): void
     {
-        $wd  = escapeshellarg($this->workDir);
+        $wd = escapeshellarg($this->workDir);
         $msg = escapeshellarg($message);
-        $br  = escapeshellarg($this->branch);
+        $br = escapeshellarg($this->branch);
 
         $this->exec("git -C {$wd} config user.email 'ai-agent@localhost'");
         $this->exec("git -C {$wd} config user.name 'AI Dev Agent'");
