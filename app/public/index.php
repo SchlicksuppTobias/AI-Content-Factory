@@ -60,6 +60,13 @@
         </div>
     </a>
 
+    <a href="coder.php" style="text-decoration:none;color:white;">
+        <div class="card">
+            <h3>💼 Code Generator</h3>
+            <p>Erstellt automatisch Code und pusht diesen auf Github</p>
+        </div>
+    </a>
+
 </div>
 
 </body>
