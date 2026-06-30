@@ -1,6 +1,8 @@
 <?php
 
 namespace src;
+use RuntimeException;
+
 /**
  * GitManager – handles cloning, writing files, committing and pushing.
  */
@@ -25,8 +27,15 @@ class GitManager
     /** Clone the repository into a temp directory. */
     public function clone(): void
     {
-        $url = escapeshellarg($this->repoUrl);
-        $dir = escapeshellarg($this->workDir);
+        // Inject token into HTTPS URL if provided via env
+        $url = $this->repoUrl;
+        $token = getenv('GIT_TOKEN');
+        if ($token && str_starts_with($url, 'https://')) {
+            $url = preg_replace('#https://#', "https://{$token}@", $url);
+        }
+
+        $url    = escapeshellarg($url);
+        $dir    = escapeshellarg($this->workDir);
         $branch = escapeshellarg($this->branch);
 
         $this->exec("git clone --depth=1 --branch {$branch} {$url} {$dir} 2>&1");
