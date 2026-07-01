@@ -1,4 +1,6 @@
 <?php
+set_time_limit(0);
+ignore_user_abort(true);
 /**
  * pipeline.php – SSE endpoint that orchestrates the full AI Dev Agent pipeline:
  * 1. Plan tickets  (Planner/Coder model)
@@ -15,13 +17,13 @@ use src\ReviewerAgent;
 use src\SSE;
 use src\TesterAgent;
 
-require_once __DIR__ . '/../src/SSE.php';
-require_once __DIR__ . '/../src/OllamaClient.php';
-require_once __DIR__ . '/../src/PlannerAgent.php';
-require_once __DIR__ . '/../src/CoderAgent.php';
-require_once __DIR__ . '/../src/ReviewerAgent.php';
-require_once __DIR__ . '/../src/TesterAgent.php';
-require_once __DIR__ . '/../src/GitManager.php';
+require_once __DIR__ . '/../../src/SSE.php';
+require_once __DIR__ . '/../../src/OllamaClient.php';
+require_once __DIR__ . '/../../src/PlannerAgent.php';
+require_once __DIR__ . '/../../src/CoderAgent.php';
+require_once __DIR__ . '/../../src/ReviewerAgent.php';
+require_once __DIR__ . '/../../src/TesterAgent.php';
+require_once __DIR__ . '/../../src/GitManager.php';
 
 SSE::init();
 
@@ -102,7 +104,7 @@ foreach ($tickets as $idx => $ticket) {
     // Build context of already-written files (trimmed to save VRAM)
     $contextFiles = [];
     foreach ($allFiles as $path => $content) {
-        $contextFiles[$path] = pipeline . phpmb_substr($content, 0, 800) . (mb_strlen($content) > 800 ? "\n// … (truncated)" : '');
+        $contextFiles[$path] = mb_substr($content, 0, 800) . (mb_strlen($content) > 800 ? "\n// … (truncated)" : '');
     }
     $existingJson = json_encode($contextFiles);
 
