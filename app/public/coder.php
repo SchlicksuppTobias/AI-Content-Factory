@@ -351,8 +351,11 @@ async function startPipeline() {
   setProgress(0);
   tickets = [];
 
-  const params = new URLSearchParams({ desc, repo, branch, ollama });
-  const evtSource = new EventSource(`../api/pipeline.php?${params}`);
+  //const params = new URLSearchParams({ desc, repo, branch, ollama });
+  //const evtSource = new EventSource(`../api/pipeline.php?${params}`);
+    const ollamaInternal = ollama.replace('localhost', 'ollama');
+    const params = new URLSearchParams({ desc, repo, branch, ollama: ollamaInternal });
+    const evtSource = new EventSource(`/api/pipeline.php?${params}`);
 
   evtSource.onmessage = (e) => {
     const data = JSON.parse(e.data);
