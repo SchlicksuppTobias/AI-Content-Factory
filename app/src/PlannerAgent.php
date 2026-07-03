@@ -2,6 +2,8 @@
 
 namespace src;
 
+use RuntimeException;
+
 require_once __DIR__ . '/OllamaClient.php';
 
 /**
