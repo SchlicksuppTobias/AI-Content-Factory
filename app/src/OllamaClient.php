@@ -1,6 +1,8 @@
 <?php
 
 namespace src;
+use RuntimeException;
+
 /**
  * OllamaClient – wraps the Ollama HTTP API
  */
