@@ -24,7 +24,6 @@ class GitManager
         return $this->workDir;
     }
 
-    /** Clone the repository into a temp directory. */
     public function clone(): void
     {
         // Inject token into HTTPS URL if provided via env
