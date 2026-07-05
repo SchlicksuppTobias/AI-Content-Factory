@@ -41,7 +41,6 @@ class GitManager
         $this->exec("git clone --depth=1 --branch {$branch} {$url} {$dir} 2>&1");
     }
 
-    /** Write a file into the work directory, creating parent dirs as needed. */
     public function writeFile(string $relativePath, string $content): void
     {
         // Sanitize path – prevent traversal
