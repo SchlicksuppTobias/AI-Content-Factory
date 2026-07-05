@@ -17,7 +17,7 @@ services:
     volumes:
       - ./app:/var/www/html
     environment:
-      GIT_TOKEN:
+      GIT_TOKEN: ${GIT_TOKEN}
     depends_on:
       - mariadb
       - redis
