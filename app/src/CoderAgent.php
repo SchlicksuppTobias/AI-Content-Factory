@@ -6,9 +6,6 @@ use RuntimeException;
 
 require_once __DIR__ . '/OllamaClient.php';
 
-/**
- * CoderAgent – implements a ticket and returns file(s) with content.
- */
 class CoderAgent
 {
     private OllamaClient $ollama;
