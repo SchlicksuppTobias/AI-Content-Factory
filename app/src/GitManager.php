@@ -26,7 +26,6 @@ class GitManager
 
     public function clone(): void
     {
-        // Inject token into HTTPS URL if provided via env
         $url = $this->repoUrl;
         $token = getenv('GIT_TOKEN');
         if ($token && str_starts_with($url, 'https://')) {
