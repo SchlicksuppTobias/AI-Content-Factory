@@ -53,7 +53,6 @@ class GitManager
         file_put_contents($fullPath, $content);
     }
 
-    /** Stage all changes, commit with a message, and push. */
     public function commitAndPush(string $message): void
     {
         $wd = escapeshellarg($this->workDir);
