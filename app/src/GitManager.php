@@ -74,7 +74,6 @@ class GitManager
         }
     }
 
-    // ── helpers ─────────────────────────────────────────────────────────────
 
     private function exec(string $cmd): string
     {
