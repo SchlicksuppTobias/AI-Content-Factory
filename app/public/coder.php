@@ -275,7 +275,7 @@
     <button class="btn" id="start-btn" onclick="startPipeline()">▶ Pipeline starten</button>
   </div>
 
-  <!-- RIGHT: Terminal -->
+
   <div class="panel-right">
     <div class="terminal-bar">
       <div class="dot dot-r"></div>
