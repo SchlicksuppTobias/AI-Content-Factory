@@ -19,9 +19,6 @@ class PlannerAgent
         $this->ollama = $ollama;
     }
 
-    /**
-     * Returns an array of ticket title strings.
-     */
     public function plan(string $projectDescription): array
     {
         $system = <<<SYS
