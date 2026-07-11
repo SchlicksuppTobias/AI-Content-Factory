@@ -45,28 +45,24 @@
 </header>
 
 <div class="container">
-
     <a href="ideas.php" style="text-decoration:none;color:white;">
         <div class="card">
             <h3>🧠 Ideen Finder</h3>
             <p>Chatte mit der AI für neue Ideen</p>
         </div>
     </a>
-
     <a href="linkedin.php" style="text-decoration:none;color:white;">
         <div class="card">
             <h3>💼 LinkedIn Generator</h3>
             <p>Erstelle Posts automatisch oder geführt</p>
         </div>
     </a>
-
     <a href="coder.php" style="text-decoration:none;color:white;">
         <div class="card">
             <h3>💼 Code Generator</h3>
             <p>Erstellt automatisch Code und pusht diesen auf Github</p>
         </div>
     </a>
-
 </div>
 
 </body>
