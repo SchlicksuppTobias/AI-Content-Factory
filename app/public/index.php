@@ -36,14 +36,12 @@
             background: #374151;
         }
     </style>
-
 </head>
 <body>
 
 <header>
     <h2>🚀 AI Content Factory</h2>
 </header>
-
 <div class="container">
     <a href="ideas.php" style="text-decoration:none;color:white;">
         <div class="card">
@@ -64,6 +62,5 @@
         </div>
     </a>
 </div>
-
 </body>
 </html>
