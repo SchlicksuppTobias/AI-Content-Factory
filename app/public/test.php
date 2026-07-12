@@ -53,7 +53,6 @@ if ($response) {
     } else {
         echo "<p>⚠️ Keine Modelle installiert</p>";
     }
-
 } else {
     echo "<p>❌ Ollama nicht erreichbar</p>";
 }
