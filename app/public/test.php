@@ -49,7 +49,6 @@ if ($response) {
         }
 
         echo "</ul>";
-
     } else {
         echo "<p>⚠️ Keine Modelle installiert</p>";
     }
