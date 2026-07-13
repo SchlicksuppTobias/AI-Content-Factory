@@ -44,7 +44,6 @@ if ($response) {
             if (!empty($model["size"])) {
                 echo " (" . round($model["size"] / 1024 / 1024 / 1024, 2) . " GB)";
             }
-
             echo "</li>";
         }
         echo "</ul>";
