@@ -62,6 +62,6 @@ PROMPT;
             }
         }
 
-        return []; // Tests optional – don't fail pipeline
+        return [];
     }
 }
