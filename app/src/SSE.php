@@ -9,7 +9,7 @@ class SSE
 {
     public static function init(): void
     {
-        // Disable output buffering as much as possible
+
         while (ob_get_level()) ob_end_clean();
 
         header('Content-Type: text/event-stream');
