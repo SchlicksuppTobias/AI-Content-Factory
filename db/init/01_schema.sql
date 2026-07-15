@@ -1,8 +1,8 @@
 CREATE TABLE projects (
-                          id INT AUTO_INCREMENT PRIMARY KEY,
-                          topic VARCHAR(255) NOT NULL,
-                          content TEXT,
-                          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    topic VARCHAR(255) NOT NULL,
+    content TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE posts (
