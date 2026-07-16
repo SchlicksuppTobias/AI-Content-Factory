@@ -6,11 +6,11 @@ CREATE TABLE projects (
 );
 
 CREATE TABLE posts (
-                       id INT AUTO_INCREMENT PRIMARY KEY,
-                       project_id INT,
-                       text TEXT,
-                       status VARCHAR(50) DEFAULT 'draft',
-                       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    project_id INT,
+    text TEXT,
+    status VARCHAR(50) DEFAULT 'draft',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE tasks (
