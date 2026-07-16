@@ -14,9 +14,9 @@ CREATE TABLE posts (
 );
 
 CREATE TABLE tasks (
-                       id INT AUTO_INCREMENT PRIMARY KEY,
-                       project_id INT,
-                       type VARCHAR(50),
-                       payload TEXT,
-                       status VARCHAR(50) DEFAULT 'pending'
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    project_id INT,
+    type VARCHAR(50),
+    payload TEXT,
+    status VARCHAR(50) DEFAULT 'pending'
 );
